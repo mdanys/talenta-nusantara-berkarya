@@ -58,7 +58,10 @@ func Language() echo.HandlerFunc {
 			Created:        datatypes.JSON([]byte(`["Dennis Ritchie"]`)),
 			Functional:     true,
 			ObjectOriented: false,
-			Relation:       datatypes.JSON([]byte(`{"influenced-by": ["B", "ALGOL 68", "Assembly", "FORTRAN"], "influences": ["C++", "Objective-C", "C#", "Java", "Javascript", "PHP", "Go"]}`)),
+			Relation:       datatypes.JSON([]byte(`{
+				"influenced-by": ["B", "ALGOL 68", "Assembly", "FORTRAN"],
+				"influences": ["C++", "Objective-C", "C#", "Java", "Javascript", "PHP", "Go"]
+			}`)),
 		}
 
 		return c.JSON(http.StatusOK, data)
