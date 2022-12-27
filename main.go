@@ -21,23 +21,23 @@ func Palindrome(input string) bool {
 }
 
 type Core struct {
-	ID             uint           `json:"id" form:"id"`
-	Language       string         `json:"language" form:"language"`
-	Appeared       int            `json:"appeared" form:"appeared"`
+	ID             uint     `json:"-" form:"-"`
+	Language       string   `json:"language" form:"language"`
+	Appeared       int      `json:"appeared" form:"appeared"`
 	Created        []string `json:"created" form:"created"`
-	Functional     bool           `json:"functional" form:"functional"`
-	ObjectOriented bool           `json:"object-oriented" form:"object-oriented"`
+	Functional     bool     `json:"functional" form:"functional"`
+	ObjectOriented bool     `json:"object-oriented" form:"object-oriented"`
 	Relation       Relation `json:"relation" form:"relation"`
 }
 
 type Relation struct {
-	ID uint
+	ID           uint
 	InfluencedBy []string `json:"influenced-by" form:"influenced-by"`
-	Influences []string `json:"influences" form:"influences"`
+	Influences   []string `json:"influences" form:"influences"`
 }
 
-type Language struct {
-	ID             uint           `json:"id" form:"id"`
+type Bahasa struct {
+	ID             uint           `json:"-" form:"-"`
 	Language       string         `json:"language" form:"language"`
 	Appeared       int            `json:"appeared" form:"appeared"`
 	Created        datatypes.JSON `json:"created" form:"created"`
@@ -52,7 +52,7 @@ type T struct {
 
 func Language() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		data := &Language{
+		data := &Bahasa{
 			Language:       "C",
 			Appeared:       1972,
 			Created:        datatypes.JSON([]byte(`["Dennis Ritchie"]`)),
